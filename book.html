@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Session — True Stride Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="tsa-icon.png">
+<style>
+  :root{
+    --navy: #0C1E33;
+    --navy-deep: #081524;
+    --ice: #F6F7F9;
+    --gold: #E8AA1F;
+    --steel: #3D5670;
+    --ink: #151A21;
+    --ink-soft: #4A5568;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    background: var(--ice);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    background: var(--navy);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .brand-mark{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: var(--ice);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 5px;
+  }
+  .brand-mark img{ width: 100%; height: 100%; object-fit: contain; }
+  .brand-name{
+    color: var(--ice);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .brand-name span{ color: var(--gold); }
+  .back-link{
+    color: rgba(246,247,249,0.75);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .back-link:hover{ color: var(--ice); }
+
+  /* ---------- PAYMENT BANNER ---------- */
+  .payment-banner{
+    background: var(--navy-deep);
+    padding: 64px 0 56px;
+    text-align: center;
+  }
+  .payment-banner .eyebrow{
+    color: var(--gold);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .payment-banner h1{
+    color: var(--ice);
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+    max-width: 620px;
+    margin: 0 auto 20px;
+    line-height: 1.08;
+  }
+  .payment-banner p{
+    color: rgba(246,247,249,0.75);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .email-box{
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(232,170,31,0.12);
+    border: 1px solid rgba(232,170,31,0.4);
+    border-radius: 8px;
+    padding: 18px 28px;
+    margin-top: 32px;
+  }
+  .email-box .label{
+    color: rgba(246,247,249,0.6);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .email-box a{
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  .email-box a:hover{ text-decoration: underline; }
+
+  /* ---------- STEPS ---------- */
+  .steps{
+    padding: 56px 0;
+    border-bottom: 1px solid #DDE1E6;
+  }
+  .steps-row{
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .step{ flex: 1 1 220px; }
+  .step .step-num{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .step h3{
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .step p{
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* ---------- PACKAGES ---------- */
+  .packages{
+    padding: 72px 0 96px;
+  }
+  .packages-head{
+    margin-bottom: 40px;
+  }
+  .section-label{
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--steel);
+    margin-bottom: 10px;
+  }
+  .packages-head h2{
+    font-size: 2.2rem;
+    color: var(--navy);
+  }
+  .price-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .price-card{
+    border: 1px solid #DDE1E6;
+    border-radius: 6px;
+    padding: 28px 24px;
+    background: #fff;
+    position: relative;
+  }
+  .price-card .count{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    color: var(--navy);
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .price-card .count .unit{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .price-card .rate{
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .price-card .rate strong{ color: var(--navy); font-weight: 600; }
+  .price-card .divider{
+    border: none;
+    border-top: 1px dashed #D3D8DE;
+    margin: 18px 0;
+  }
+  .price-card .total{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.9rem;
+    color: var(--navy);
+  }
+  .price-card .total-label{
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+  }
+  .price-card.featured{
+    background: var(--navy-deep);
+    border-color: var(--navy-deep);
+  }
+  .price-card.featured .count,
+  .price-card.featured .total{ color: var(--ice); }
+  .price-card.featured .count .unit,
+  .price-card.featured .rate,
+  .price-card.featured .total-label{ color: rgba(246,247,249,0.65); }
+  .price-card.featured .rate strong{ color: var(--gold); }
+  .price-card.featured .divider{ border-top-color: rgba(255,255,255,0.15); }
+  .price-card .badge{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .session-strip{
+    margin-top: 40px;
+    background: var(--steel);
+    border-radius: 8px;
+    padding: 32px 36px;
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .session-strip .item{ flex: 1 1 180px; }
+  .session-strip .label{
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+  .session-strip .value{
+    color: var(--ice);
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  .session-strip .note{
+    color: rgba(246,247,249,0.65);
+    font-size: 0.85rem;
+    margin-top: 4px;
+  }
+
+  footer{
+    background: var(--navy-deep);
+    padding: 32px 0;
+    text-align: center;
+  }
+  footer p{
+    color: rgba(246,247,249,0.45);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  @media (max-width: 760px){
+    .price-grid{ grid-template-columns: 1fr 1fr; }
+    .email-box{ flex-direction: column; gap: 4px; padding: 18px 24px; }
+    .session-strip{ padding: 24px; gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <div class="brand-mark">
+        <img src="tsa-icon.png" alt="True Stride Academy">
+      </div>
+      <div class="brand-name">True Stride <span>Academy</span></div>
+    </a>
+    <a class="back-link" href="index.html">&larr; Back to home</a>
+  </div>
+</header>
+
+<section class="payment-banner">
+  <div class="wrap">
+    <div class="eyebrow">Reserve your spot</div>
+    <h1>Pick your package below, then e-transfer to confirm.</h1>
+    <p>Spots are limited to 8 skaters per skate. Once we receive your e-transfer, you're booked in — include your skater's name and the package you're choosing in the memo.</p>
+    <div class="email-box">
+      <div>
+        <div class="label">E-TRANSFER TO</div>
+        <a href="mailto:truestrideacademy@gmail.com">truestrideacademy@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap steps-row">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Choose a package</h3>
+      <p>Pick drop-in or one of the multi-skate packages below.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Send an e-transfer</h3>
+      <p>Send the total to truestrideacademy@gmail.com with your skater's name and package in the memo.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Get confirmed</h3>
+      <p>You'll get a reply confirming your spot once the e-transfer is received.</p>
+    </div>
+  </div>
+</section>
+
+<section class="packages">
+  <div class="wrap">
+    <div class="packages-head">
+      <div class="section-label">Packages</div>
+      <h2>Choose your commitment</h2>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="count">1 <span class="unit">skate</span></div>
+        <div class="rate">Drop-in</div>
+        <hr class="divider">
+        <div class="total">$75</div>
+        <div class="total-label">PER SESSION</div>
+      </div>
+      <div class="price-card">
+        <div class="count">6 <span class="unit">skates</span></div>
+        <div class="rate">$70 <strong>/ skate</strong></div>
+        <hr class="divider">
+        <div class="total">$420</div>
+        <div class="total-label">TOTAL</div>
+      </div>
+      <div class="price-card">
+        <div class="count">12 <span class="unit">skates</span></div>
+        <div class="rate">$65 <strong>/ skate</strong></div>
+        <hr class="divider">
+        <div class="total">$780</div>
+        <div class="total-label">TOTAL</div>
+      </div>
+      <div class="price-card featured">
+        <div class="badge">Best value</div>
+        <div class="count">16 <span class="unit">skates</span></div>
+        <div class="rate">$60 <strong>/ skate</strong></div>
+        <hr class="divider">
+        <div class="total">$960</div>
+        <div class="total-label">AUG–DEC</div>
+      </div>
+    </div>
+
+    <div class="session-strip">
+      <div class="item">
+        <div class="label">Location</div>
+        <div class="value">Paramount Thornhill</div>
+      </div>
+      <div class="item">
+        <div class="label">Session time</div>
+        <div class="value">Mondays, 5–6 PM</div>
+      </div>
+      <div class="item">
+        <div class="label">Season</div>
+        <div class="value">Aug 31 – Dec 21</div>
+        <div class="note">16 sessions · no skate Oct 12 (Thanksgiving)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 True Stride Academy. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
